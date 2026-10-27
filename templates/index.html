@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Spice Garden | Home{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>
+            Welcome to <br>Spice Garden
+        </h1>
+        <p>
+            Where technology meets taste and every dish is
+            prepared with a pinch of creativity.
+        </p>
+        <a href="{{ url_for('menu') }}" class="button">
+            Explore Our Menu
+        </a>
+    </div>
+</section>
+{% endblock %}

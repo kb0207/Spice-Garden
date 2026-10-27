@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% block title %}Menu & Interactive Taste Engine | Spice Garden{% endblock %}
+
+{% block content %}
+<section class="menu-section" style="max-width: 1100px; margin: auto; padding: 40px 20px;">
+    <h2 style="text-align: center; color: #3b1f0f; font-size: 38px;">Our Interactive Menu</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">Customize your taste profile below to filter dishes that fit your exact cravings.</p>
+
+    <!-- X-FACTOR: TASTE ENGINE -->
+    <div class="taste-engine-box">
+        <h3>🌶️ Custom Spice & Taste Engine</h3>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Dishes</button>
+            <button class="filter-btn" data-filter="mild">🌱 Mild / Kids</button>
+            <button class="filter-btn" data-filter="medium">🔥 Medium Spice</button>
+            <button class="filter-btn" data-filter="spicy">🌶️🌶️ Hot & Spicy</button>
+            <button class="filter-btn" data-filter="sweet">🍰 Sweet Tooth</button>
+        </div>
+    </div>
+
+    <div class="menu-container" id="menu-grid">
+        <!-- STARTERS -->
+        <div class="menu-card" data-category="medium">
+            <span class="spice-tag">Medium 🔥</span>
+            <div class="food-image">🥟</div>
+            <h4>Veg Momos</h4>
+            <p>Steamed dumplings filled with fresh vegetables.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹149</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Veg Momos', 149)">Add to Tray</button>
+        </div>
+
+        <div class="menu-card" data-category="medium">
+            <span class="spice-tag">Medium 🔥</span>
+            <div class="food-image">🍟</div>
+            <h4>Masala Fries</h4>
+            <p>Crispy fries tossed in our special masala.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹129</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Masala Fries', 129)">Add to Tray</button>
+        </div>
+
+        <div class="menu-card" data-category="mild">
+            <span class="spice-tag">Mild 🌱</span>
+            <div class="food-image">🥗</div>
+            <h4>Garden Salad</h4>
+            <p>Fresh vegetables with our homemade dressing.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹159</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Garden Salad', 159)">Add to Tray</button>
+        </div>
+
+        <!-- MAIN COURSE -->
+        <div class="menu-card" data-category="mild">
+            <span class="spice-tag">Mild 🌱</span>
+            <div class="food-image">🍛</div>
+            <h4>Paneer Butter Masala</h4>
+            <p>Soft paneer cooked in a creamy tomato gravy.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹249</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Paneer Butter Masala', 249)">Add to Tray</button>
+        </div>
+
+        <div class="menu-card" data-category="spicy">
+            <span class="spice-tag">Spicy 🌶️🌶️</span>
+            <div class="food-image">🍚</div>
+            <h4>Veg Biryani</h4>
+            <p>Fragrant basmati rice cooked with aromatic spices.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹229</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Veg Biryani', 229)">Add to Tray</button>
+        </div>
+
+        <div class="menu-card" data-category="medium">
+            <span class="spice-tag">Medium 🔥</span>
+            <div class="food-image">🍜</div>
+            <h4>Hakka Noodles</h4>
+            <p>Stir-fried noodles with fresh vegetables.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹199</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Hakka Noodles', 199)">Add to Tray</button>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="menu-card" data-category="sweet">
+            <span class="spice-tag">Sweet 🍰</span>
+            <div class="food-image">🍰</div>
+            <h4>Chocolate Cake</h4>
+            <p>Rich and moist chocolate cake.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹149</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Chocolate Cake', 149)">Add to Tray</button>
+        </div>
+
+        <div class="menu-card" data-category="sweet">
+            <span class="spice-tag">Sweet 🍰</span>
+            <div class="food-image">🍨</div>
+            <h4>Ice Cream</h4>
+            <p>Choose from chocolate, vanilla or strawberry.</p>
+            <span style="font-size: 20px; font-weight: bold; color: #c76b16;">₹99</span>
+            <button class="add-to-cart-btn" onclick="addToTray('Ice Cream', 99)">Add to Tray</button>
+        </div>
+    </div>
+
+    <!-- LIVE BILL / TRAY CALCULATOR -->
+    <div style="margin-top: 50px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+        <h3 style="color: #3b1f0f;">🍽️ Your Selected Order Tray</h3>
+        <p id="order-id-display" style="font-size: 14px; color: #666; margin-top: 5px;">Order ID: <span id="current-order-id" style="font-weight: bold; color: #3b1f0f;">Generating...</span></p>
+        
+        <ul id="tray-list" style="margin: 15px 0; padding-left: 20px;">
+            <li id="empty-msg" style="list-style: none; color: #888;">No items added yet. Click "Add to Tray" above.</li>
+        </ul>
+        
+        <div style="font-size: 18px; font-weight: bold; color: #3b1f0f; margin-bottom: 15px;">
+            Total Amount: ₹<span id="tray-total">0</span>
+        </div>
+
+        <button id="send-kitchen-btn" onclick="sendToKitchen()" style="background-color: #3b1f0f; color: #f5b041; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; display: none;">Send to Kitchen</button>
+        <p id="kitchen-msg" style="margin-top: 10px; font-weight: bold; display: none;"></p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Generate a Unique Random Order ID on page load
+    let currentOrderId = 'SG-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+    document.getElementById('current-order-id').textContent = currentOrderId;
+
+    // Taste Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const menuCards = document.querySelectorAll('.menu-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            menuCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Tray & Cart Management
+    let trayItems = [];
+    let total = 0;
+
+    function addToTray(name, price) {
+        const emptyMsg = document.getElementById('empty-msg');
+        if (emptyMsg) emptyMsg.remove();
+
+        trayItems.push({ name, price });
+        updateTrayUI();
+    }
+
+    function updateTrayUI() {
+        const trayList = document.getElementById('tray-list');
+        trayList.innerHTML = '';
+        total = 0;
+
+        trayItems.forEach((item, index) => {
+            total += item.price;
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ₹${item.price}`;
+            trayList.appendChild(li);
+        });
+
+        document.getElementById('tray-total').textContent = total;
+        document.getElementById('send-kitchen-btn').style.display = trayItems.length > 0 ? 'inline-block' : 'none';
+    }
+
+    async function sendToKitchen() {
+        const btn = document.getElementById('send-kitchen-btn');
+        const msgBox = document.getElementById('kitchen-msg');
+        btn.disabled = true;
+
+        try {
+            const response = await fetch('/api/order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    order_id: currentOrderId,
+                    items: trayItems,
+                    total: total
+                })
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                msgBox.style.display = 'block';
+                msgBox.style.color = 'green';
+                msgBox.textContent = "Items from the cart sent to our kitchen!";
+                btn.style.display = 'none';
+            } else {
+                throw new Error(data.error);
+            }
+        } catch (err) {
+            msgBox.style.display = 'block';
+            msgBox.style.color = 'red';
+            msgBox.textContent = "Failed to send order. Please try again.";
+            btn.disabled = false;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fff2dc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+header {
+    background-color: #3b1f0f;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #f5b041;
+    font-size: 26px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #f5b041;
+    background-color: rgba(245, 176, 65, 0.15);
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(59, 31, 15, 0.8), rgba(59, 31, 15, 0.8)),
+                url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=80") center/cover;
+    color: white;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #f1d4a8;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f5b041;
+    color: #3b1f0f;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #ffd180;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 176, 65, 0.4);
+}
+
+/* X-FACTOR: TASTE ENGINE & FILTERS */
+.taste-engine-box {
+    background-color: #ffffff;
+    border: 2px solid #f5b041;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 24px rgba(59, 31, 15, 0.08);
+}
+
+.taste-engine-box h3 {
+    color: #3b1f0f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    background-color: #fffaf5;
+    border: 1px solid #f5b041;
+    color: #3b1f0f;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #f5b041;
+    color: #3b1f0f;
+}
+
+/* MENU GRID */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.menu-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.food-image {
+    font-size: 60px;
+    background-color: #fff2dc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.spice-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: #3b1f0f;
+    color: #f5b041;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    margin-top: 12px;
+    background-color: #3b1f0f;
+    color: #f5b041;
+    border: none;
+    padding: 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #c76b16;
+    color: white;
+}
+
+/* CHEF & TEAM CARDS */
+.team-section {
+    background-color: #fff2dc;
+    padding: 60px 25px;
+}
+
+.team-heading {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: #c76b16;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.team-heading h2 {
+    color: #3b1f0f;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.team-heading > p:last-child {
+    color: #666;
+}
+
+.team-card {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid #f1d4a8;
+    box-shadow: 0 8px 20px rgba(59, 31, 15, 0.08);
+    transition: 0.3s;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #f5b041;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CONTACT FORM & RATING */
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.rating-stars span {
+    color: #ccc;
+    transition: 0.2s;
+}
+
+.rating-stars span.active {
+    color: #f5b041;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form button {
+    width: 100%;
+    background-color: #3b1f0f;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background-color: #251208;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #f5b041;
+}
+
+/* ABOUT SECTION */
+
+.about-section {
+    background-color: #fff2dc;
+    padding: 80px 25px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #f5b041;
+}
+
+.about-content p {
+    margin-top: 20px;
+}
+
+.about-section h2{
+    text-align: center;
+    font-size: 38px;
+    color: #3b1f0f;
+    margin-bottom: 10px;}

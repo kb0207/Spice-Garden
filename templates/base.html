@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Spice Garden | Modern Cuisine{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}" class="logo"> Spice Garden</a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="{% if page == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}" class="{% if page == 'menu' %}active{% endif %}">Menu</a></li>
+                <li><a href="{{ url_for('team') }}" class="{% if page == 'team' %}active{% endif %}">Our Chefs</a></li>
+                <li><a href="{{ url_for('about') }}" class="{% if page == 'about' %}active{% endif %}">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="{% if page == 'contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Spice Garden</h3>
+        <p>123 Food Street, New Delhi</p>
+        <p>📞 +91 98765 43210</p>
+        <p>© 2026 Spice Garden. All Rights Reserved.</p>
+        <p><a href="https://github.com/kb0207/Restaurant-Menu" target="_blank">GitHub Repository</a></p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

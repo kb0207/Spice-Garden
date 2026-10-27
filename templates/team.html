@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Our Chef Brigade | Spice Garden{% endblock %}
+
+{% block content %}
+<!-- OUR CHEF BRIGADE -->
+<section id="team" class="team-section">
+    <div class="team-heading">
+        <p class="section-label">
+            THE KITCHEN CREW
+        </p>
+        <h2>
+            Our Chef Brigade
+        </h2>
+        <p>
+            Meet the chefs who prepared this delicious
+            combination of code, creativity and cuisine.
+        </p>
+    </div>
+
+    <div class="menu-container" style="max-width: 1100px; margin: auto;">
+
+        <!-- JAI KUMAR -->
+        <div class="team-card">
+            <div class="chef-badge">
+                👨‍🍳 CHEF
+            </div>
+            <div class="profile-image">
+                <img
+                    src="{{ url_for('static', filename='img/jai-kumar.jpg') }}"
+                    alt="Jai Kumar"
+                >
+            </div>
+            <h4>
+                Jai Kumar
+            </h4>
+            <span class="chef-id">
+                Chef ID: 26/A03/028
+            </span>
+        </div>
+
+        <!-- JOY MALIK -->
+        <div class="team-card">
+            <div class="chef-badge">
+                👨‍🍳 CHEF
+            </div>
+            <div class="profile-image">
+                <img
+                    src="{{ url_for('static', filename='img/joy-malik.jpg') }}"
+                    alt="Joy Malik"
+                >
+            </div>
+            <h4>
+                Joy Malik
+            </h4>
+            <span class="chef-id">
+                Chef ID: 26/A03/035
+            </span>
+        </div>
+
+        <!-- KARAN BHURA -->
+        <div class="team-card">
+            <div class="chef-badge">
+                👨‍🍳 CHEF
+            </div>
+            <div class="profile-image">
+                <img
+                    src="{{ url_for('static', filename='img/karan-bhura.jpg') }}"
+                    alt="Karan Bhura"
+                >
+            </div>
+            <h4>
+                Karan Bhura
+            </h4>
+            <span class="chef-id">
+                Chef ID: 26/A03/041
+            </span>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
